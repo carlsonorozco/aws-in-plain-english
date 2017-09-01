@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Amazon Web Services in Plain English</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/night.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+
+                <section>
+                    <img src="img/aws-logo-transparent.png" alt="" style="background: none; box-shadow: none; border: none;">
+                    <h2>in Plain English</h2>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>What is <span class="fragment highlight-blue">Cloud Computing</span>?</h3>
+                    </section>
+                    <section>
+                        <p><strong><span class="fragment highlight-blue">Cloud computing</span></strong> is the on-demand delivery of compute power, database storage, applications, and other IT resources through a cloud services platform via the internet with pay-as-you-go pricing.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Advantages and Benefits of <span class="fragment highlight-blue">Cloud Computing</span></h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li class="fragment fade-up">Trade capital expense for variable expense</li>
+                            <li class="fragment fade-up">Benefit from massive economies of scale</li>
+                            <li class="fragment fade-up">Stop guessing capacity</li>
+                            <li class="fragment fade-up">Increase speed and agility</li>
+                            <li class="fragment fade-up">Stop spending money on running and maintaining data centers</li>
+                            <li class="fragment fade-up">Go global in minutes</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Trade capital expense for variable expense<br>
+                                    Instead of having to invest heavily in data centers and servers before you know how you’re going to use them, you can only pay when you consume computing resources, and only pay for how much you consume.
+                                </li>
+                                <li>
+                                    Benefit from massive economies of scale<br>
+                                    By using cloud computing, you can achieve a lower variable cost than you can get on your own. Because usage from hundreds of thousands of customers are aggregated in the cloud, providers such as Amazon Web Services can achieve higher economies of scale which translates into lower pay as you go prices.
+                                </li>
+                                <li>
+                                    Stop guessing capacity<br>
+                                    Eliminate guessing on your infrastructure capacity needs. When you make a capacity decision prior to deploying an application, you often either end up sitting on expensive idle resources or dealing with limited capacity. With cloud computing, these problems go away. You can access as much or as little as you need, and scale up and down as required with only a few minutes notice.
+                                </li>
+                                <li>
+                                    Increase speed and agility<br>
+                                    In a cloud computing environment, new IT resources are only ever a click away, which means you reduce the time it takes to make those resources available to your developers from weeks to just minutes. This results in a dramatic increase in agility for the organization, since the cost and time it takes to experiment and develop is significantly lower.
+                                </li>
+                                <li>
+                                    Stop spending money on running and maintaining data centers<br>
+                                    Focus on projects that differentiate your business, not the infrastructure. Cloud computing lets you focus on your own customers, rather than on the heavy lifting of racking, stacking and powering servers.
+                                </li>
+                                <li>
+                                    Go global in minutes<br>
+                                    Easily deploy your application in multiple regions around the world with just a few clicks. This means you can provide a lower latency and better experience for your customers simply and at minimal cost.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Types of <span class="fragment highlight-blue">Cloud Computing</span></h3>
+                    </section>
+                    <section>
+                        <ul>
+                            <li class="fragment fade-up">Infrastructure as a Service (IaaS)</li>
+                            <li class="fragment fade-up">Platform as a Service (PaaS)</li>
+                            <li class="fragment fade-up">Software as a Service (SaaS)</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <p>Infrastructure as a Service, sometimes abbreviated as IaaS, contains the basic building blocks for cloud IT and typically provide access to networking features, computers (virtual or on dedicated hardware), and data storage space. Infrastructure as a Service provides you with the highest level of flexibility and management control over your IT resources and is most similar to existing IT resources that many IT departments and developers are familiar with today.</p>
+                            <p>Platforms as a service remove the need for organizations to manage the underlying infrastructure (usually hardware and operating systems) and allow you to focus on the deployment and management of your applications. This helps you be more efficient as you don’t need to worry about resource procurement, capacity planning, software maintenance, patching, or any of the other undifferentiated heavy lifting involved in running your application.</p>
+                            <p>Software as a Service provides you with a completed product that is run and managed by the service provider. In most cases, people referring to Software as a Service are referring to end-user applications. With a SaaS offering you do not have to think about how the service is maintained or how the underlying infrastructure is managed; you only need to think about how you will use that particular piece software. A common example of a SaaS application is web-based email where you can send and receive email without having to manage feature additions to the email product or maintaining the servers and operating systems that the email program is running on.</p>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Run an App Services</h3>
+                        <p class="fragment fade-up">No matter what you do with AWS you'll probably end up using these services as everything else interacts with them.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">EC2</h3>
+                        <img class="fragment fade-up" src="img/Compute_AmazonEC2_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Virtual Servers</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Host the bits of things you think of as a computer.</p>
+
+                        <aside class="notes">
+                            It's like: http://www.linode.com","It's handwavy, but EC2 instances are similar to the virtual private servers you'd get at Linode, DigitalOcean or Rackspace.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">IAM</h3>
+                        <img class="fragment fade-up" src="img/SecurityIdentityCompliance_IAM_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Users, Keys and Certs</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Set up additional users, set up new AWS Keys and policies.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">S3</h3>
+                        <img class="fragment fade-up" src="img/Storage_AmazonS3_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Unlimited FTP Server</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Store images and other assets for websites. Keep backups and share files between services. Host static websites. Also, many of the other AWS services write and read from S3.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">VPC</h3>
+                        <img class="fragment fade-up" src="img/NetworkingContentDelivery_AmazonVPC_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Virtual Colocated Rack</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Overcome objections that "all our stuff is on the internet!" by adding an additional layer of security. Makes it appear as if all of your AWS services are on the same little network instead of being small pieces in a much bigger network.</p>
+
+                        <aside class="notes">
+                            It's like: If you're familar with networking: VLANs
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Lambda</h3>
+                        <img class="fragment fade-up" src="img/Compute_AWSLambda_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>AWS App Scripts</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Run little self contained snippets of JS, Java or Python to do discrete tasks. Sort of a combination of a queue and execution in one. Used for storing and then executing changes to your AWS setup or responding to events in S3 or DynamoDB.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Web Developer Services</h3>
+                        <p class="fragment fade-up">If you're setting up a web app, these are mostly what you'd end up using. These are similar to what you'd find in Heroku's Addon Marketplace.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">API Gateway</h3>
+                        <img class="fragment fade-up" src="img/ApplicationServices_AmazonAPIGateway_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>API Proxy</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Proxy your apps API through this so you can throttle bad client traffic, test new versions, and present methods more cleanly.</p>
+
+                        <aside class="notes">
+                            It's like: 3Scale
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">RDS</h3>
+                        <img class="fragment fade-up" src="img/Database_AmazonRDS_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon SQL</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Be your app's Mysql, Postgres, and Oracle database.</p>
+
+                        <aside class="notes">
+                            It's like: Heroku Postgres
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Route53</h3>
+                        <img class="fragment fade-up" src="img/NetworkingContentDelivery_AmazonRoute53_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon DNS + Domains</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Buy a new domain and set up the DNS records for that domain.</p>
+
+                        <aside class="notes">
+                            It's like: DNSimple, GoDaddy, Gandi
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">SES</h3>
+                        <img class="fragment fade-up" src="img/Messaging_AmazonSES_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Transactional Email</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Send one-off emails like password resets, notifications, etc. You could use it to send a newsletter if you wrote all the code, but that's not a great idea.</p>
+
+                        <aside class="notes">
+                            It's like: SendGrid, Mandrill, Postmark
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Cloudfront</h3>
+                        <img class="fragment fade-up" src="img/NetworkingContentDelivery_AmazonCloudFront_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon CDN</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Make your websites load faster by spreading out static file delivery to be closer to where your users are.</p>
+
+                        <aside class="notes">
+                            It's like: MaxCDN, Akamai
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CloudSearch</h3>
+                        <img class="fragment fade-up" src="img/Analytics_AmazonCloudSearch_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Fulltext Search</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Pull in data on S3 or in RDS and then search it for every instance of 'Jimmy.'</p>
+
+                        <aside class="notes">
+                            It's like: Sphinx, Solr, ElasticSearch
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">DynamoDB</h3>
+                        <img class="fragment fade-up" src="img/Database_AmazonDynamoDB_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon NoSQL</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Be your app's massively scalable key valueish store.</p>
+
+                        <aside class="notes">
+                            It's like: MongoLab
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Elasticache</h3>
+                        <img class="fragment fade-up" src="img/Database_AmazonElasticCache_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Memcached</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Be your app's Memcached or Redis.</p>
+
+                        <aside class="notes">
+                            It's like: Redis to Go, Memcachier
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Elastic Transcoder</h3>
+                        <img class="fragment fade-up" src="img/ApplicationServices_AmazonElasticTranscoder_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Beginning Cut Pro</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Deal with video weirdness (change formats, compress, etc.).</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">SQS</h3>
+                        <img class="fragment fade-up" src="img/Messaging_AmazonSQS_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Queue</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Store data for future processing in a queue. The lingo for this is storing "messages" but it doesn't have anything to do with email or SMS. SQS doesn't have any logic, it's just a place to put things and take things out.</p>
+
+                        <aside class="notes">
+                            It's like: RabbitMQ, Sidekiq
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">WAF</h3>
+                        <img class="fragment fade-up" src="img/SecurityIdentityCompliance_AWSWAF_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>AWS Firewall</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Block bad requests to Cloudfront protected sites (aka stop people trying 10,000 passwords against /wp-admin)</p>
+
+                        <aside class="notes">
+                            It's like: Sophos, Kapersky
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Mobile App Developer Services</h3>
+                        <p class="fragment fade-up">These are the services that only work for mobile developers.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Cognito</h3>
+                        <img class="fragment fade-up" src="img/MobileServices_AmazonCognito_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon OAuth as a Service</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Give end users - (non AWS) - the ability to log in with Google, Facebook, etc.</p>
+
+                        <aside class="notes">
+                            It's like: OAuth.io
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Device Farm</h3>
+                        <img class="fragment fade-up" src="img/MobileServices_AWSDeviceFarm_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Drawer of Old Android Devices</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Test your app on a bunch of different IOS and Android devices simultaneously.</p>
+
+                        <aside class="notes">
+                            It's like: MobileTest, iOS emulator
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Mobile Analytics</h3>
+                        <img class="fragment fade-up" src="img/MobileServices_AmazonMobileAnalytics_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Spot on Name, Amazon Product Managers take note</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Track what people are doing inside of your app.</p>
+
+                        <aside class="notes">
+                            It's like: Flurry
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">SNS</h3>
+                        <img class="fragment fade-up" src="img/Messaging_AmazonSNS_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Messenger</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Send mobile notifications, emails and/or SMS messages</p>
+
+                        <aside class="notes">
+                            It's like: UrbanAirship, Twilio
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Ops and Code Deployment Services</h3>
+                        <p class="fragment fade-up">These are for automating how you manage and deploy your code onto other services.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CodeCommit</h3>
+                        <img class="fragment fade-up" src="img/DeveloperTools_AWSCodeCommit_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon GitHub</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Version control your code - hosted Git.</p>
+
+                        <aside class="notes">
+                            It's like: Github, BitBucket
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Code Deploy</h3>
+                        <img class="fragment fade-up" src="img/DeveloperTools_AWSCodeDeploy_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Not bad</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Get your code from your CodeCommit repo (or Github) onto a bunch of EC2 instances in a sane way.</p>
+
+                        <aside class="notes">
+                            It's like: Heroku, Capistrano
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CodePipeline</h3>
+                        <img class="fragment fade-up" src="img/DeveloperTools_AWSCodePipeline_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Continuous Integration</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Run automated tests on your code and then do stuff with it depending on if it passes those tests.</p>
+
+                        <aside class="notes">
+                            It's like: CircleCI, Travis
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">EC2 Container Service</h3>
+                        <img class="fragment fade-up" src="img/Compute_AmazonECS_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Docker as a Service</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Put a Dockerfile into an EC2 instance so you can run a website.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Elastic Beanstalk</h3>
+                        <img class="fragment fade-up" src="img/Compute_AWSElasticBeanstalk_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Platform as a Service</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Move your app hosted on Heroku to AWS when it gets too expensive.</p>
+
+                        <aside class="notes">
+                            It's like: Heroku, BlueMix, Modulus
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Enterprise / Corporate Services</h3>
+                        <p class="fragment fade-up">Services for business and networks.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">AppStream</h3>
+                        <img class="fragment fade-up" src="img/ApplicationServices_AmazonAppStream_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Citrix</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Put a copy of a Windows application on a Windows machine that people get remote access to.</p>
+
+                        <aside class="notes">
+                            It's like: Citrix, RDP
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Direct Connect</h3>
+                        <img class="fragment fade-up" src="img/NetworkingContentDelivery_AWSDirectConnect_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Pretty spot on actually</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Pay your Telco + AWS to get a dedicated leased line from your data center or network to AWS. Cheaper than Internet out for Data.</p>
+
+                        <aside class="notes">
+                            It's like: A toll road turnpike bypassing the crowded side streets.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Directory Service</h3>
+                        <img class="fragment fade-up" src="img/SecurityIdentityCompliance_AWSDirectoryService_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Pretty spot on actually</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Tie together other apps that need a Microsoft Active Directory to control them.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">WorkDocs</h3>
+                        <img class="fragment fade-up" src="img/BusinessProductivity_AmazonWorkDocs_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Unstructured Files</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Share Word Docs with your colleagues.</p>
+
+                        <aside class="notes">
+                            It's like: Dropbox, DataAnywhere
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">WorkMail</h3>
+                        <img class="fragment fade-up" src="img/BusinessProductivity_AmazonWorkMail_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Company Email</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Give everyone in your company the same email system and calendar.</p>
+
+                        <aside class="notes">
+                            It's like: Google Apps for Domains
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Workspaces</h3>
+                        <img class="fragment fade-up" src="img/DesktopAppStreaming_AmazonWorkSpaces_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Remote Computer</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Gives you a standard windows desktop that you're remotely controlling.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Service Catalog</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSServiceCatalog_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Setup Already</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Give other AWS users in your group access to preset apps you've built so they don't have to read guides like this.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Storage Gateway</h3>
+                        <img class="fragment fade-up" src="img/Storage_AWSStorageGateway_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>S3 pretending it's part of your corporate network</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Stop buying more storage to keep Word Docs on. Make automating getting files into S3 from your corporate network easier.</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>Big Data Services</h3>
+                        <p class="fragment fade-up">Services to ingest, manipulate and massage data to do your will.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Data Pipeline</h3>
+                        <img class="fragment fade-up" src="img/Analytics_AWSDataPipeline_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon ETL</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Extract, Transform and Load data from elsewhere in AWS. Schedule when it happens and get alerts when they fail.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Elastic Map Reduce</h3>
+                        <img class="fragment fade-up" src="img/Analytics_AmazonEMR_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Hadooper</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Iterate over massive text files of raw data that you're keeping in S3.</p>
+
+                        <aside class="notes">
+                            It's like: Treasure Data
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Glacier</h3>
+                        <img class="fragment fade-up" src="img/Storage_AmazonGlacier_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Really slow Amazon S3</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Make backups of your backups that you keep on S3. Also, beware the cost of getting data back out in a hurry. For long term archiving.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Kinesis</h3>
+                        <img class="fragment fade-up" src="img/Analytics_AmazonKinesis_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon High Throughput</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Ingest lots of data very quickly (for things like analytics or people retweeting Kanye) that you then later use other AWS services to analyze.</p>
+
+                        <aside class="notes">
+                            It's like: Kafka
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">RedShift</h3>
+                        <img class="fragment fade-up" src="img/Analytics_AmazonRedshift_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Data Warehouse</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Store a whole bunch of analytics data, do some processing, and dump it out.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Machine Learning</h3>
+                        <img class="fragment fade-up" src="img/AI_AmazonMachineLearning_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Skynet</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Predict future behavior from existing data for problems like fraud detection or "people that bought x also bought y."</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">SWF</h3>
+                        <img class="fragment fade-up" src="img/ApplicationServices_AmazonSWF_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon EC2 Queue</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Build a service of "deciders" and "workers" on top of EC2 to accomplish a set task. Unlike SQS - logic is set up inside the service to determine how and what should happen.</p>
+
+                        <aside class="notes">
+                            It's like: IronWorker
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Snowball</h3>
+                        <img class="fragment fade-up" src="img/Migration_AWSSnowball_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>AWS Big Old Portable Storage</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Get a bunch of hard drives you can attach to your network to make getting large amounts (Terabytes of Data) into and out of AWS</p>
+
+                        <aside class="notes">
+                            It's like: Shipping a Network Attached Storage device to AWS
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>AWS Management Services</h3>
+                        <p class="fragment fade-up">AWS can get so difficult to manage that they invented a bunch of services to sell you to make it easier to manage.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CloudFormation</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSCloudFormation_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Services Setup</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Set up a bunch of connected AWS services in one go.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CloudTrail</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSCloudTrail_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Logging</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Log who is doing what in your AWS stack (API calls).</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">CloudWatch</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AmazonCloudWatch_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Status Pager</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Get alerts about AWS services messing up or disconnecting.</p>
+
+                        <aside class="notes">
+                            It's like: PagerDuty, Statuspage
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Config</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSConfig_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Configuration Management</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Keep from going insane if you have a large AWS setup and changes are happening that you want to track.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">OpsWorks</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSOpsWorks_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Chef</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Handle running your application with things like auto-scaling.</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Trusted Advisor</h3>
+                        <img class="fragment fade-up" src="img/ManagementTools_AWSTrustedAdvisor_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Pennypincher</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Find out where you're paying too much in your AWS setup (unused EC2 instances, etc.).</p>
+                    </section>
+
+                    <section>
+                        <h3 class="fragment fade-up">Inspector</h3>
+                        <img class="fragment fade-up" src="img/SecurityIdentityCompliance_AmazonInspector_LARGE.png" width="100px" alt="" style="background: none; box-shadow: none; border: none;">
+                        <p class="fragment fade-up"><strong>Should have been called: </strong>Amazon Auditor</p>
+                        <p class="fragment fade-up"><strong>Use this to: </strong>Scans your AWS setup to determine if you've setup it up in an insecure way</p>
+
+                        <aside class="notes">
+                            It's like: Alert Logic
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h3>AWS Reference Architectures</h3>
+                    </section>
+
+                    <section data-background="#ffffff">
+                        <img class="fragment fade-up" src="img/architecture/web-application-hosting.png" alt="" style="background: none; box-shadow: none; border: none;">
+                    </section>
+
+                    <section data-background="#ffffff">
+                        <img class="fragment fade-up" src="img/architecture/web-log-analysis.png" alt="" style="background: none; box-shadow: none; border: none;">
+                    </section>
+                </section>
+
+                <section>
+                    <h1>End</h1>
+                </section>
+
+                <section>
+                    <h4>Reference</h4>
+                    <p style="font-size: small">
+                        https://aws.amazon.com/what-is-cloud-computing/<br>
+                        https://aws.amazon.com/types-of-cloud-computing/<br>
+                        https://www.expeditedssl.com/aws-in-plain-english<br>
+                        http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_web_01.pdf<br>
+                        http://media.amazonwebservices.com/architecturecenter/AWS_ac_ra_loganalysis_11.pdf<br>
+                    </p>
+                </section>
+
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+        </script>
+    </body>
+</html>
